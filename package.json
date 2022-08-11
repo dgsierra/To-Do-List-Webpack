@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/dgonzalesi/To-Do-List-Webpack#readme",
   "dependencies": {
+    "http-proxy-middleware": "^2.0.6",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
