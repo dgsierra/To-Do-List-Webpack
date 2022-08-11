@@ -3,12 +3,12 @@ import { container } from './DOMElements.js'
 import { myArray } from './GlobalArray.js'
 
 export default class MyTasksToDo {
-  constructor () {
+  constructor() {
     this.counter = 0;
     this.tasks = [];
   }
 
-  addTask (task) {
+  addTask(task) {
     const newDiv = document.createElement('div')
     this.tasks.push(task.value)
     newDiv.innerHTML = `
@@ -22,7 +22,7 @@ export default class MyTasksToDo {
     this.saveStorage()
   }
 
-  retriveStorage (oldtask) {
+  retriveStorage(oldtask) {
     this.newDiv = document.createElement('div');
     this.tasks.push(oldtask);
     this.newDiv.innerHTML = `<div class="taskcheck"> <input type="checkbox" class="checkbox" id="task_${this.counter}" name="task_${this.counter}">
@@ -33,14 +33,11 @@ export default class MyTasksToDo {
     myArray.push(oldtask);
   }
 
-  deleteTask (task) {
+  deleteTask(task) {
     this.tasks.splice(this.tasks.indexOf(task), 1)
   }
 
-  testing () {
-  }
-
-  saveStorage () {
+  saveStorage() {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 }
