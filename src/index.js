@@ -1,3 +1,10 @@
-import { camelCase } from 'lodash'
+/* eslint-disable semi */
+import './style.css'
+// Project Modules
+import addTaskForm from './eventListeners.js'
+import loadContent from './LoadStorage.js'
 
-console.log(camelCase('hello world'))
+addTaskForm();
+
+// Load content from localStorage
+loadContent();
