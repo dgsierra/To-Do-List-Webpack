@@ -96,8 +96,3 @@ button {
     border: none;
     font-size: 1rem;
 }
-
-.nodisplay {
-    /* display: none; */
-    background-color: brown;
-}
