@@ -4,6 +4,5 @@ import { clearbtn } from './DOMElements.js';
 export default () => {
   clearbtn.addEventListener('click', () => {
     MyTasks.clearCompleted();
-    console.log('cleared');
   });
 };
