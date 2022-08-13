@@ -58,13 +58,11 @@ export default class MyTasksToDo {
       this.die = e.target.parentNode.id;
       e.preventDefault();
       e.target.parentNode.parentNode.remove();
-      // console.log(e.target.parentNode.id);
       myArray.splice(this.die, 1);
       this.counter -= 1;
       // updated index data in the array
       for (let i = 0; i < myArray.length; i += 1) {
         myArray[i].index = i + 1;
-        // console.log(`${e.target.parentNode.id} Old index`)
         e.target.parentNode.id = i;
       }
       this.saveStorage();
@@ -121,17 +119,14 @@ export default class MyTasksToDo {
     this.completedElements.forEach((element) => {
       element.remove();
     })
-    this.removeArray = [];
-    this.removeArray.sort();
-    myArray.map((element) => {
-      if (element.done === true) {
-        this.removeArray.push(element.index - 1)
-      }
-      return 'done';
-    });
-    this.reversed = this.removeArray.reverse();
-    for (let i = 0; i <= this.removeArray.length; i += 1) {
-      myArray.splice(this.removeArray[i], 1);
+    const filterArray = myArray.filter((element) => {
+      if (element.done !== true) {
+        return element
+      } return false;
+    })
+    myArray.splice(0, myArray.length);
+    for (let i = 0; i < filterArray.length; i += 1) {
+      myArray.push(filterArray[i]);
     }
     for (let i = 0; i < myArray.length; i += 1) {
       myArray[i].index = i + 1;
