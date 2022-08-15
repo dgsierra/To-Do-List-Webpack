@@ -60,7 +60,7 @@ export default class MyTasksToDo {
       e.target.parentNode.parentNode.remove();
       myArray.splice(this.die, 1);
       this.counter -= 1;
-      // updated index data in the array
+      // updated index of elements in the array
       for (let i = 0; i < myArray.length; i += 1) {
         myArray[i].index = i + 1;
         e.target.parentNode.id = i;
