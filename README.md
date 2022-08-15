@@ -15,9 +15,9 @@ Awesome Books is a website that allows users to add/remove books from a list usi
 - Webpack
 - A lot of Coffee
 
-## Live Demo (if available)
+## Live Demo
 
-[Coming Soon!](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+[Link!](https://dgonzalesi.github.io/To-Do-List-Webpack/)
 
 
 ## Getting Started
