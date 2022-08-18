@@ -1,5 +1,5 @@
 /* eslint-disable semi */
-import { container } from './DOMElements.js'
+import { clearbtn, container } from './DOMElements.js'
 import { myArray } from './GlobalArray.js'
 
 const myStorage = JSON.parse(localStorage.getItem('myArray'));
@@ -7,6 +7,17 @@ export default class MyTasksToDo {
   constructor() {
     this.counter = 1;
     this.tasks = [];
+    this.myFunction = (task, status = false) => {
+      this.newDiv = document.createElement('div');
+      this.myobject = {};
+      this.myobject.index = this.counter;
+      this.myobject.task = task;
+      this.myobject.done = status;
+      this.newDiv.innerHTML = `<div class="taskcheck"> <input type="checkbox" class="checkbox" id="task_${this.counter}" name="task_${this.counter}">
+      <label class="tasktext myedit" for="task_${this.counter}">${this.myobject.task}</label></div><button id="${this.counter - 1}" class="delete"><i class="fa-solid fa-trash-can edit"></i></button>`
+      this.newDiv.classList.add('task');
+      container.appendChild(this.newDiv);
+    }
   }
 
   addTask(task) {
@@ -37,11 +48,11 @@ export default class MyTasksToDo {
     this.myobject.done = status;
     this.newDiv.innerHTML = `<div class="taskcheck"> <input type="checkbox" class="checkbox" id="task_${this.counter}" name="task_${this.counter}">
     <label class="tasktext myedit" for="task_${this.counter}">${this.myobject.task}</label></div><button id="${this.counter - 1}" class="delete"><i class="fa-solid fa-trash-can edit"></i></button>`
+    this.newDiv.classList.add('task');
+    container.appendChild(this.newDiv);
     if (status === true) {
       this.newDiv.classList.add('active');
     }
-    this.newDiv.classList.add('task');
-    container.appendChild(this.newDiv);
     this.counter += 1;
     this.deleteTask();
     myArray.push(this.myobject);
@@ -79,11 +90,13 @@ export default class MyTasksToDo {
         if (e.target.checked) {
           e.target.parentNode.parentNode.classList.add('active');
           myArray[this.index].done = true;
+          clearbtn.classList.add('active-btn');
           this.saveStorage();
         } else {
           e.target.parentNode.parentNode.classList.remove('active');
           myArray[this.index].done = false;
           this.saveStorage();
+          clearbtn.classList.remove('active-btn');
         }
       })
     })
